@@ -1,34 +1,51 @@
 <?php 
 
 function getDB() {
-    $db = new PDO('mysql:host=localhost;'.'dbname=db_tasks;charset=utf8', 'root', '');
+    $db = new PDO('mysql:host=localhost;'.'dbname=db_tienda_natura;charset=utf8', 'root', '');
     return $db;
 }
 
 /**
- * Devuelve la lista de tareas completa.
+ * Devuelve la lista de productos completa.
  */
-function getAllTasks() {
+function getAllProducts() {
     // 1. abro conexión a la DB
     $db = getDB();
 
     // 2. ejecuto la sentencia (2 subpasos)
-    $query = $db->prepare("SELECT * FROM task");
+    $query = $db->prepare("SELECT * FROM producto");
     $query->execute();
 
     // 3. obtengo los resultados
-    $tasks = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
+    $products = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
     
-    return $tasks;
+    return $products;
+}
+
+/**
+ * Devuelve la lista de categorias completa.
+ */
+function getAllCategories() {
+    // 1. abro conexión a la DB
+    $db = getDB();
+
+    // 2. ejecuto la sentencia (2 subpasos)
+    $query = $db->prepare("SELECT * FROM categoria");
+    $query->execute();
+
+    // 3. obtengo los resultados
+    $categories = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
+    
+    return $categories;
 }
 
 /**
  * Inserta una tarea en la base de datos.
  */
-function insertTask($title, $description, $priority) {
+function insertProducts($nombre, $precio, $descripcion, $id_categoria_fk) {
     $db = getDB();
-    $query = $db->prepare("INSERT INTO task (titulo, descripcion, prioridad, finalizada) VALUES (?, ?, ?, ?)");
-    $query->execute([$title, $description, $priority, false]);
+    $query = $db->prepare("INSERT INTO producto (nombre, precio, descripcion, id_categoria_fk) VALUES (?, ?, ?, ?)");
+    $query->execute([$nombre, $precio, $descripcion, $id_categoria_fk]);
 
     return $db->lastInsertId();
 }
@@ -37,8 +54,8 @@ function insertTask($title, $description, $priority) {
 /**
  * Elimina una tarea dado su id.
  */
-function deleteTaskById($id) {
+function deleteProductById($id) {
     $db = getDB();
-    $query = $db->prepare('DELETE FROM task WHERE id = ?');
+    $query = $db->prepare('DELETE FROM producto WHERE id = ?');
     $query->execute([$id]);
 }

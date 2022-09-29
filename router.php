@@ -8,6 +8,7 @@ if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 }
 
+
 // parsea la accion Ej: dev/juan --> ['dev', juan]
 $params = explode('/', $action);
 
@@ -15,15 +16,18 @@ $params = explode('/', $action);
 // tabla de ruteo
 switch ($params[0]) {
     case 'list':
-        showTasks();
+        showProducts();
+        break;
+    case 'list_categories':
+        showCategories();
         break;
     case 'add':
-        addTask();
+        addProducts();
         break;
     case 'delete':
         // obtengo el parametro de la acción
         $id = $params[1];
-        deleteTask($id);
+        deleteProduct($id);
         break;
     default:
         echo('404 Page not found');
