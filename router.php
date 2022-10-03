@@ -1,5 +1,5 @@
 <?php
-require_once './app/tasks.php';
+require_once './Controller/ProductoController.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -12,11 +12,13 @@ if (!empty($_GET['action'])) {
 // parsea la accion Ej: dev/juan --> ['dev', juan]
 $params = explode('/', $action);
 
+$productoController = new ProductoController();
+
 
 // tabla de ruteo
 switch ($params[0]) {
     case 'list':
-        showProducts();
+        $productoController->viewProducts();
         break;
     case 'list_categories':
         showCategories();
@@ -28,6 +30,10 @@ switch ($params[0]) {
         // obtengo el parametro de la acción
         $id = $params[1];
         deleteProduct($id);
+        break;
+    case 'update':
+        $id = $params[1];
+        modifyProduct($id);
         break;
     default:
         echo('404 Page not found');
