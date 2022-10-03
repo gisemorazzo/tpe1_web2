@@ -6,8 +6,6 @@ class ProductoController{
 
     private $model;
     private $view;
-    private $helper;
-    private $modelLibro;
 
 
     function __construct(){
