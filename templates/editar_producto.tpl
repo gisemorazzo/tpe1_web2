@@ -15,15 +15,12 @@
 
         <div class="col-3">
             <div class="form-group">
-                <label>Categoria</label>
-                <select name="category" class="form-control">
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
+                <label> Categoria <select class="form_categoria" name="id_categoria_fk"id="id_categoria_fk">
+                {foreach from=$categorias item=$categoria}
+                <option value={$categoria->id}>{$categoria->nombre}</option>
+                {/foreach}
                 </select>
+                </label>
             </div>
         </div>
     </div>

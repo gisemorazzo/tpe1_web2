@@ -25,11 +25,11 @@ class ProductoModel{
         $query = $this->db->prepare("DELETE FROM producto WHERE producto.id = ?");
         $query->execute(array($id));
     }
-    function updateProducts($nombre, $precio, $descripcion, $id_categoria_fk){
+    function updateProduct($nombre, $precio, $descripcion, $id_categoria_fk){
         $query = $this->db->prepare("UPDATE producto SET (nombre, precio, descripcion, id_categoria_fk) WHERE producto.id=?");
         $query->execute(array($nombre, $precio, $descripcion, $id_categoria_fk));
 
-       
 
+        
     }
 }

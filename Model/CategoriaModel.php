@@ -29,4 +29,5 @@ class CategoriaModel{
         $query = $this->db->prepare("UPDATE categoria SET categoria=? WHERE categoria.id = ?");
         $query->execute(array($id,$nombre));
     }
+    
 }

@@ -15,8 +15,9 @@ class ProductoView{
     function goToProducts(){
         header("Location: ".BASE_URL."list");
     }
-    function showEditProduct($id){
+    function showEditProduct($id, $categories){
         $this->smarty->assign('id', $id);
+        $this->smarty->assign('categorias', $categories);
         $this->smarty->display('templates/editar_producto.tpl');
     }
     function deleteProduct($id) {

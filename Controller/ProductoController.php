@@ -30,8 +30,8 @@ class ProductoController{
         $this->view->goToProducts();
     }
     function updateProduct($id){
-        $this->productModel->updateProduct($_POST['nombre'], $_POST['precio'], $_POST['descripcion'], $_POST['id_categoria_fk'])
-        $this->view->showEditProduct($id);
+        $categories = $this->categoryModel->getCategories();
+        $this->view->showEditProduct($id, $categories);
     }
     function goToProducts() {
         $this->view->goToProducts();

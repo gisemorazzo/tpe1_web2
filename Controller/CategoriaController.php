@@ -26,7 +26,7 @@ class CategoriaController{
         $this->view->goCategories();
     }
     function updateCategory($id){
-        $this->model->updateCategory($id);
+        $categories = $this->model->updateCategory();
         $this->view->goCategories();
     }
 }

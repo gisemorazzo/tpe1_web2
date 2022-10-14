@@ -1,6 +1,7 @@
 <?php
 require_once './Controller/ProductoController.php';
 require_once './Controller/CategoriaController.php';
+require_once './Controller/userController.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -16,6 +17,7 @@ $params = explode('/', $action);
 
 $productoController = new ProductoController();
 $categoriaController = new CategoriaController();
+$userController = new userController();
 
 // tabla de ruteo
 switch ($params[0]) {
@@ -48,7 +50,22 @@ switch ($params[0]) {
         $id = $params[1];
         $categoriaController->updateCategory($id);
         break;
+    case 'usuario':
+            $userController->mostrarUsuario($params[1]);
+            break;
+    case 'usuarios':
+            $userController->mostrarUsuarios();
+            break;
+    case 'editarUsuario':
+            $userController->editarUsuario();
+            break;
+    case 'eliminarUsuario':
+            $userController->deleteUsuario($params[1]);
+            break;    
     default:
         echo('404 Page not found');
         break;
 }
+
+
+?>
