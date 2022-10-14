@@ -17,5 +17,16 @@ class CategoriaController{
         $categories = $this->model->getCategories();
         $this->view->showCategories($categories);
     }
-
+    function addCategory(){
+        $this->model->insertCategory($_POST['category']);
+        $this->view->goCategories();
+    }
+    function deleteCategory($id){
+        $this->model->deleteCategory($id);
+        $this->view->goCategories();
+    }
+    function updateCategory($id){
+        $this->model->updateCategory($id);
+        $this->view->goCategories();
+    }
 }

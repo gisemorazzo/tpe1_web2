@@ -15,4 +15,18 @@ class CategoriaModel{
         
         return $categories;
     }
+    function insertCategory($nombre){
+        $query = $this->db->prepare("INSERT INTO categoria (nombre) VALUES (?)");
+        $query->execute(array($nombre));
+
+        return $this->db->lastInsertId();
+    }
+    function deleteCategory($id){
+        $query = $this->db->prepare("DELETE FROM categoria WHERE categoria.id = ?");
+        $query->execute(array($id));
+    }
+    function updateCategory($id,$nombre){
+        $query = $this->db->prepare("UPDATE categoria SET categoria=? WHERE categoria.id = ?");
+        $query->execute(array($id,$nombre));
+    }
 }

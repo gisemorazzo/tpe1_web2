@@ -4,9 +4,10 @@ require_once './Controller/CategoriaController.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
-$action = 'list'; // acción por defecto
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
+} else {
+    $action = 'list';
 }
 
 
@@ -24,17 +25,28 @@ switch ($params[0]) {
     case 'list_categories':
         $categoriaController->viewCategories();
         break;
-    case 'add':
-        addProducts();
+    case 'add_products':
+        $productoController->addProducts();
         break;
-    case 'delete':
+    case 'add_category':
+        $categoriaController->addCategory();
+        break;
+    case 'deleteProduct':
         // obtengo el parametro de la acción
         $id = $params[1];
-        deleteProduct($id);
+        $productoController->deleteProduct($id);
         break;
-    case 'update':
+    case 'deleteCategory':
         $id = $params[1];
-        updateProduct($id);
+        $categoriaController->deleteCategory($id);
+        break;
+    case 'updateProduct':
+        $id = $params[1];
+        $productoController->updateProduct($id);
+        break;
+    case 'updateCategory':
+        $id = $params[1];
+        $categoriaController->updateCategory($id);
         break;
     default:
         echo('404 Page not found');

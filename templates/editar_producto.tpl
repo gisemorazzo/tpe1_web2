@@ -1,6 +1,6 @@
 {include file='templates/header.tpl'}
 <!-- formulario de alta de productos -->
-<form action="addProduct" method="POST" class="my-4">
+<form action="editProduct" method="POST" class="my-4">
     <div class="row">
         <div class="col-9">
             <div class="form-group">

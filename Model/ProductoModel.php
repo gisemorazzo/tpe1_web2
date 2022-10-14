@@ -15,4 +15,21 @@ class ProductoModel{
         
         return $products;
     }
+    function insertProducts($nombre, $precio, $descripcion, $id_categoria_fk) {
+        $query = $this->db->prepare("INSERT INTO producto (nombre, precio, descripcion, id_categoria_fk) VALUES (?, ?, ?, ?)");
+        $query->execute([$nombre, $precio, $descripcion, $id_categoria_fk]);
+        
+        return $this->db->lastInsertId();
+    }
+    function deleteProduct($id){
+        $query = $this->db->prepare("DELETE FROM producto WHERE producto.id = ?");
+        $query->execute(array($id));
+    }
+    function updateProducts($nombre, $precio, $descripcion, $id_categoria_fk){
+        $query = $this->db->prepare("UPDATE producto SET (nombre, precio, descripcion, id_categoria_fk) WHERE producto.id=?");
+        $query->execute(array($nombre, $precio, $descripcion, $id_categoria_fk));
+
+       
+
+    }
 }
