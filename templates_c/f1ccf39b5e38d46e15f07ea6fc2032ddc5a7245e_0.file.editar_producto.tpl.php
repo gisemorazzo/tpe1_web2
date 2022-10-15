@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2022-10-14 22:18:32
+/* Smarty version 3.1.39, created on 2022-10-15 02:10:59
   from 'C:\xampp\htdocs\web2\tpe_1_web2\templates\editar_producto.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6349c418139aa4_83791319',
+  'unifunc' => 'content_6349fa93bd3332_28602029',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f1ccf39b5e38d46e15f07ea6fc2032ddc5a7245e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\tpe_1_web2\\templates\\editar_producto.tpl',
-      1 => 1665778708,
+      1 => 1665792645,
       2 => 'file',
     ),
   ),
@@ -22,26 +22,28 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6349c418139aa4_83791319 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6349fa93bd3332_28602029 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <!-- formulario de alta de productos -->
 <form action="editProduct" method="POST" class="my-4">
+    <input name="id" type="hidden" value="<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+">
     <div class="row">
         <div class="col-9">
             <div class="form-group">
                 <label>Producto</label>
-                <input name="product" type="text" class="form-control">
+                <input name="nombre" type="text" class="form-control">
             </div>
             <div class="form-group">
                 <label>Precio</label>
-                <input name="price" type="number" class="form-control">
+                <input name="precio" type="number" class="form-control">
             </div>
         </div>
 
         <div class="col-3">
             <div class="form-group">
-                <label> Categoria <select class="form_categoria" name="id_categoria_fk"id="id_categoria_fk">
+                <label> Categoria <select class="form_categoria" name="id_categoria_fk" id="id_categoria_fk">
                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['categorias']->value, 'categoria');
 $_smarty_tpl->tpl_vars['categoria']->do_else = true;
@@ -62,7 +64,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
     <div class="form-group">
         <label>Descripcion</label>
-        <textarea name="description" class="form-control" rows="3"></textarea>
+        <textarea name="descripcion" class="form-control" rows="3"></textarea>
     </div>
 
     <button type="submit" class="btn btn-primary mt-2">Guardar</button>

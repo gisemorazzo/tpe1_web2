@@ -42,8 +42,10 @@ function deleteProductById($id) {
     $query = $db->prepare('DELETE FROM producto WHERE id = ?');
     $query->execute([$id]);
 }
-function modifyProductById($id, $nombre, $precio, $descripcion, $id_categoria_fk){
+function editProductById($id, $nombre, $precio, $descripcion, $id_categoria_fk){
     $db = getDB();
     $query = $db->prepare("UPDATE producto SET (nombre = ?, precio = ?, descripcion = ?, id_categoria_fk = ?) WHERE producto.id = ?");
     $query->execute(array($nombre, $precio, $descripcion, $id_categoria_fk, $id));
+
+    return $db->lastInsertId();
 }

@@ -23,6 +23,9 @@
                     <a class="nav-link" href="list">Productos</a>
                   </li>
                   <li class="nav-item">
+                    <a class="nav-link" href="productos_por_categoria">Productos por Categorias</a>
+                  </li>
+                  <li class="nav-item">
                     <a class="nav-link" href="list_categories">Categorias</a>
                   </li>
                   <li class="nav-item">

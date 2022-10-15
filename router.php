@@ -50,6 +50,12 @@ switch ($params[0]) {
         $id = $params[1];
         $categoriaController->updateCategory($id);
         break;
+    case 'editProduct':
+        $productoController->editProduct();
+        break;
+    case 'productos_por_categoria':
+        $productoController->mostrarProductosPorCategoria();
+        break;
     case 'usuario':
             $userController->mostrarUsuario($params[1]);
             break;

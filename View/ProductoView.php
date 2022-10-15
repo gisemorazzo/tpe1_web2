@@ -26,4 +26,8 @@ class ProductoView{
     function updateProducts($nombre, $precio, $descripcion, $id_categoria_fk){    
         updateProductsById($id);    
     }
+    function mostrarProductosPorCategoria($categories){
+        $this->smarty->assign('categorias', $categories);
+        $this->smarty->display('templates/productos_por_categoria.tpl');
+    }
 }
