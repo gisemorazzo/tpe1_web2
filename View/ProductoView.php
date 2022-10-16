@@ -3,8 +3,9 @@ require_once './libs/smarty-3.1.39/libs/Smarty.class.php';
 class ProductoView{
     private $smarty;
 
-    function __construct() {
+    function __construct($email) {
         $this->smarty = new Smarty();
+        $this->smarty->assign('email',$email);
     }
 
     function showProducts($products, $categories){

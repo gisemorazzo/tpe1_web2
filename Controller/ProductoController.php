@@ -2,18 +2,20 @@
 require_once "./Model/ProductoModel.php";
 require_once "./Model/CategoriaModel.php";
 require_once "./View/ProductoView.php";
+require_once "./helpers/authHelper.php";
 
 class ProductoController{
 
     private $productModel;
     private $categoryModel;
     private $view;
-
+    private $helper;
 
     function __construct(){
+        $this->helper = new AuthHelpers();
         $this->productModel = new ProductoModel();
         $this->categoryModel = new CategoriaModel();
-        $this->view = new ProductoView();
+        $this->view = new ProductoView($this->helper->getEmail());
     }
 
     function viewProducts(){

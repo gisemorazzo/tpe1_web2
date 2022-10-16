@@ -1,7 +1,7 @@
 <?php
 
 require_once "./Model/userModel.php";
-require_once "./View/userView.php";
+require_once "./View/UsuarioView.php";
 require_once "./helpers/authHelper.php";
 
 
@@ -13,8 +13,7 @@ class UserController{
     function __construct(){
         $this->helper = new AuthHelpers();
         $this->model = new userModel();
-        $this->view = new userView($this->helper->getNombre(), $this->helper->getRol());
-        // $this->controller = new userController();
+        $this->view = new UsuarioView($this->helper->getEmail());
     }
 
     function login(){
@@ -40,9 +39,9 @@ class UserController{
                 //inicion session  y le pido datos de la session para poder usarlos en el helper
                 session_start();
                 $_SESSION["email"] = $email;
-                $_SESSION["nombre_apellido"]=$user->nombre_apellido;
+                $_SESSION["nombre"]=$user->nombre;
                 $_SESSION["id"]=$user->id;
-                $_SESSION["tipoUser"]=$user->tipoUser;
+                $_SESSION["rol"]=$user->rol;
                 $this->view->showHome();
             } else {
                 $this->view->showLogin("Acceso denegado");
@@ -56,17 +55,15 @@ class UserController{
     }
 
     function createUser(){
-        if(!empty($_POST['email'])&& !empty($_POST['password'])&&!empty($_POST['nombre_apellido'])){
+        if(!empty($_POST['email'])&& !empty($_POST['password'])&&!empty($_POST['nombre'])){
             $userEmail=$_POST['email'];
             if(isset($userEmail) != $this->model->getUser($userEmail)){
                 $userPassword=password_hash($_POST['password'],PASSWORD_BCRYPT) ;
-                $userNombre=$_POST['nombre_apellido'];
+                $userNombre=$_POST['nombre'];
                 $this->model->insertUser($userEmail,$userPassword,$userNombre);
-                $this->view->showHomeLogin();
-                $this->verifyLogin();
+                $this->view->showLogin();
             }else{
                 $this->view->showCreateLogin("El EMAIL ya existe");
-
             }
         }
     }
@@ -98,9 +95,9 @@ class UserController{
 
     // modificar usuario
     function editarUsuario(){
-        if (isset($_POST['nombre_apellido'],$_POST['tipoUser'],$_POST['email']) && !empty($_POST['nombre_apellido'] && !empty($_POST['tipoUser']) && !empty($_POST['email']))) {
+        if (isset($_POST['nombre'],$_POST['tipoUser'],$_POST['email']) && !empty($_POST['nombre'] && !empty($_POST['rol']) && !empty($_POST['email']))) {
             $this->helper->checkLogin();
-            $this->model->editUser($_POST['nombre_apellido'],$_POST['tipoUser'],$_POST['email']);
+            $this->model->editUser($_POST['nombre'],$_POST['rol'],$_POST['email']);
             $this->mostrarUsuarios();
         } else{
             $this->mostrarUsuarios();

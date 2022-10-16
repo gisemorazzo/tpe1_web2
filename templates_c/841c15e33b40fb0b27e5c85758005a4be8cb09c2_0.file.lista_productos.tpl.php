@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2022-10-15 20:31:42
+/* Smarty version 3.1.39, created on 2022-10-17 00:10:35
   from 'C:\xampp\htdocs\web2\tpe_1_web2\templates\lista_productos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_634afc8e8ef0d7_36029107',
+  'unifunc' => 'content_634c815be23ef6_24202423',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '841c15e33b40fb0b27e5c85758005a4be8cb09c2' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\tpe_1_web2\\templates\\lista_productos.tpl',
-      1 => 1665858700,
+      1 => 1665958232,
       2 => 'file',
     ),
   ),
@@ -22,11 +22,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_634afc8e8ef0d7_36029107 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634c815be23ef6_24202423 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
     <div class="contenedor-general"> 
      <!-- formulario de alta de Producto -->
+     <?php if ((isset($_smarty_tpl->tpl_vars['email']->value))) {?>
      <form action="add_products" method="POST" class="my-4">
      <div class="row">
          <div class="col-9">
@@ -57,6 +58,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     </div>
      <button type="submit" class="btn btn-primary mt-2">Guardar</button>
  </form>
+     <?php }?>
  </br>
                 
         <div class="content-top-page">
@@ -73,8 +75,10 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     <th scope="col">Precio</th>
                     <th scope="col">Descripcion</th>
                     <th scope="col">Categoria</th>
+                    <?php if ((isset($_smarty_tpl->tpl_vars['email']->value))) {?>
                     <th scope="col">Borrar</th>
-                    <th scope="col">Editar</th>     
+                    <th scope="col">Editar</th>  
+                    <?php }?>   
                 </tr>
                 </thead>
                 <tbody>
@@ -95,17 +99,21 @@ $_smarty_tpl->tpl_vars['producto']->do_else = false;
                             <td id="categoria-producto"><?php echo $_smarty_tpl->tpl_vars['producto']->value->id_categoria_fk;?>
 </td>
                             <td>
+                            <?php if ((isset($_smarty_tpl->tpl_vars['email']->value))) {?>
                                 <a class="btn btn-danger" href="deleteProduct/<?php echo $_smarty_tpl->tpl_vars['producto']->value->id;?>
 " id="btn-product-delete">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                 </a>
                             </td>
+                            <?php }?>
+                            <?php if ((isset($_smarty_tpl->tpl_vars['email']->value))) {?>
                             <td>
                                 <a class="btn btn-success" href="updateProduct/<?php echo $_smarty_tpl->tpl_vars['producto']->value->id;?>
 " id="btn-product-edit">
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                 </a>
                             </td>
+                            <?php }?>
                         </tr>
                     <?php
 }

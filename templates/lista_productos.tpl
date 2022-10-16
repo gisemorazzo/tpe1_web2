@@ -1,6 +1,7 @@
 {include file='templates/header.tpl'}
     <div class="contenedor-general"> 
      <!-- formulario de alta de Producto -->
+     {if isset($email)}
      <form action="add_products" method="POST" class="my-4">
      <div class="row">
          <div class="col-9">
@@ -22,6 +23,7 @@
     </div>
      <button type="submit" class="btn btn-primary mt-2">Guardar</button>
  </form>
+     {/if}
  </br>
                 
         <div class="content-top-page">
@@ -38,8 +40,10 @@
                     <th scope="col">Precio</th>
                     <th scope="col">Descripcion</th>
                     <th scope="col">Categoria</th>
+                    {if isset($email)}
                     <th scope="col">Borrar</th>
-                    <th scope="col">Editar</th>     
+                    <th scope="col">Editar</th>  
+                    {/if}   
                 </tr>
                 </thead>
                 <tbody>
@@ -50,15 +54,19 @@
                             <td id="descripcion-producto">{$producto->descripcion}</td>
                             <td id="categoria-producto">{$producto->id_categoria_fk}</td>
                             <td>
+                            {if isset($email)}
                                 <a class="btn btn-danger" href="deleteProduct/{$producto->id}" id="btn-product-delete">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                 </a>
                             </td>
+                            {/if}
+                            {if isset($email)}
                             <td>
                                 <a class="btn btn-success" href="updateProduct/{$producto->id}" id="btn-product-edit">
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                 </a>
                             </td>
+                            {/if}
                         </tr>
                     {/foreach}
                 </tbody>

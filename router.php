@@ -64,18 +64,21 @@ switch ($params[0]) {
     case 'productos_por_categoria':
         $productoController->mostrarProductosPorCategoria();
         break;
-    case 'usuario':
-            $userController->mostrarUsuario($params[1]);
-            break;
-    case 'usuarios':
-            $userController->mostrarUsuarios();
-            break;
-    case 'editarUsuario':
-            $userController->editarUsuario();
-            break;
-    case 'eliminarUsuario':
-            $userController->deleteUsuario($params[1]);
-            break;    
+    case 'login':
+        $userController->login();
+        break;
+    case 'logout':
+        $userController->logout();
+        break;
+    case 'verify': 
+        $userController->verifyLogin();
+        break;
+    case 'createLogin':
+        $userController->createLogin();
+        break;  
+    case 'createUser':
+        $userController->createUser();
+        break;
     default:
         echo('404 Page not found');
         break;

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2022-10-15 20:11:08
+/* Smarty version 3.1.39, created on 2022-10-16 16:38:08
   from 'C:\xampp\htdocs\web2\tpe_1_web2\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_634af7bc3fd6b5_82571627',
+  'unifunc' => 'content_634c175030ec23_57663417',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '574555dfc5e1273e1936479894920914aab32866' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\tpe_1_web2\\templates\\header.tpl',
-      1 => 1665856640,
+      1 => 1665931084,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_634af7bc3fd6b5_82571627 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634c175030ec23_57663417 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,6 +51,9 @@ function content_634af7bc3fd6b5_82571627 (Smarty_Internal_Template $_smarty_tpl)
                   <li class="nav-item">
                     <a class="nav-link" href="list_categories">Categorias</a>
                   </li>
+                  <li class="nav-item">
+                  <a class="nav-link" href="login">Iniciar sesión</a>
+                </li>
                   <li class="nav-item">
                     <a class="nav-link" href="logout">Cerrar sesión</a>
                   </li>

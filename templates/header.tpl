@@ -26,6 +26,9 @@
                     <a class="nav-link" href="list_categories">Categorias</a>
                   </li>
                   <li class="nav-item">
+                  <a class="nav-link" href="login">Iniciar sesión</a>
+                </li>
+                  <li class="nav-item">
                     <a class="nav-link" href="logout">Cerrar sesión</a>
                   </li>
                 </ul>

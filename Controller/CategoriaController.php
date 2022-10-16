@@ -1,16 +1,18 @@
 <?php
 require_once "./Model/CategoriaModel.php";
 require_once "./View/CategoriaView.php";
+require_once "./helpers/authHelper.php";
 
 class CategoriaController{
 
     private $model;
     private $view;
-
+    private $helper;
 
     function __construct(){
+        $this->helper = new AuthHelpers();
         $this->model = new CategoriaModel();
-        $this->view = new CategoriaView();
+        $this->view = new CategoriaView($this->helper->getEmail());
     }
 
     function viewCategories(){
