@@ -30,5 +30,11 @@ class CategoriaModel{
         $query->execute(array($nombre));
 
     }
+    function getProductsByCategory($id){
+        $query = $this->db->prepare( "SELECT * FROM producto WHERE id_categoria_fk = ?");
+        $query->execute(array($id));
+        $products = $query->fetchAll(PDO::FETCH_OBJ);
+        return $products;
+    }
     
 }

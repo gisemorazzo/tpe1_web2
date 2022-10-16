@@ -29,4 +29,8 @@ class CategoriaController{
         $categories = $this->model->updateCategory($id);
         $this->view->goCategories();
     }
+    function getProductsByCategory($id){
+        $products = $this->model->getProductsByCategory($id);
+        $this->view->showProductsByCategory($products);
+    }
 }

@@ -23,6 +23,7 @@
      <button type="submit" class="btn btn-primary mt-2">Guardar</button>
  </form>
  </br>
+                
         <div class="content-top-page">
             <div class="content-title">
                 <h1>Lista de Productos</h1>
@@ -44,7 +45,7 @@
                 <tbody>
                     {foreach from=$productos item=$producto}
                         <tr>
-                            <td scope="row"><a href="producto/{$producto->id}" id="titulo-producto">{$producto->nombre}</a></td>
+                            <td scope="row"><a href="detalle_producto/{$producto->id}" id="titulo-producto">{$producto->nombre}</a></td>
                             <td id="precio-producto">${$producto->precio}</td>
                             <td id="descripcion-producto">{$producto->descripcion}</td>
                             <td id="categoria-producto">{$producto->id_categoria_fk}</td>

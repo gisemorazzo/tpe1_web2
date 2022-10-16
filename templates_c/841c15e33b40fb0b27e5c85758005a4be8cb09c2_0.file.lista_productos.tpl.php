@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2022-10-14 22:10:53
+/* Smarty version 3.1.39, created on 2022-10-15 20:31:42
   from 'C:\xampp\htdocs\web2\tpe_1_web2\templates\lista_productos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6349c24d635f45_51609625',
+  'unifunc' => 'content_634afc8e8ef0d7_36029107',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '841c15e33b40fb0b27e5c85758005a4be8cb09c2' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\tpe_1_web2\\templates\\lista_productos.tpl',
-      1 => 1665778251,
+      1 => 1665858700,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6349c24d635f45_51609625 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634afc8e8ef0d7_36029107 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
     <div class="contenedor-general"> 
@@ -58,6 +58,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
      <button type="submit" class="btn btn-primary mt-2">Guardar</button>
  </form>
  </br>
+                
         <div class="content-top-page">
             <div class="content-title">
                 <h1>Lista de Productos</h1>
@@ -84,7 +85,7 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['producto']->valu
 $_smarty_tpl->tpl_vars['producto']->do_else = false;
 ?>
                         <tr>
-                            <td scope="row"><a href="producto/<?php echo $_smarty_tpl->tpl_vars['producto']->value->id;?>
+                            <td scope="row"><a href="detalle_producto/<?php echo $_smarty_tpl->tpl_vars['producto']->value->id;?>
 " id="titulo-producto"><?php echo $_smarty_tpl->tpl_vars['producto']->value->nombre;?>
 </a></td>
                             <td id="precio-producto">$<?php echo $_smarty_tpl->tpl_vars['producto']->value->precio;?>

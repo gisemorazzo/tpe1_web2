@@ -9,6 +9,7 @@
                         <input name="category" type="text" class="form-control">
                     </div>
                 </div>
+            </div>
             <button type="submit" class="btn btn-primary mt-2">Guardar</button>
         </form>
         </br>

@@ -33,6 +33,14 @@ switch ($params[0]) {
     case 'add_category':
         $categoriaController->addCategory();
         break;
+    case 'categoria':
+        $id = $params[1];
+        $categoriaController->getProductsByCategory($id);
+        break;
+    case 'detalle_producto':
+        $id = $params[1];
+        $productoController->detalleProducto($id);
+        break;
     case 'deleteProduct':
         // obtengo el parametro de la acción
         $id = $params[1];

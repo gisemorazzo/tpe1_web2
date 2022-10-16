@@ -25,4 +25,8 @@ class CategoriaView{
         $this->smarty->assign('categorias', $categories);
         $this->smarty->display('templates/editar_categoria.tpl');
     }
+    function showProductsByCategory($products){
+        $this->smarty->assign('productos', $products);
+        $this->smarty->display('templates/categoria.tpl');
+    }
 }

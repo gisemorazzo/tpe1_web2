@@ -44,4 +44,8 @@ class ProductoController{
         $categories = $this->categoryModel->getCategories();
         $this->view->mostrarProductosPorCategoria($categories);
     }
+    function detalleProducto($id){
+        $product = $this->productModel->getProduct($id);
+        $this->view->detalleProducto($product);
+    }
 }

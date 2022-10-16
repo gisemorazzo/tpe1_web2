@@ -32,4 +32,11 @@ class ProductoModel{
         return $this->db->lastInsertId();
 
     }
+    function getProduct($id){
+        $query = $this->db->prepare( "SELECT producto.id, producto.nombre, producto.descripcion, producto.precio,
+         producto.id_categoria_fk,categoria.nombre AS nombre_categoria FROM producto JOIN categoria ON producto.id_categoria_fk = categoria.id WHERE producto.id=?;");
+        $query->execute(array($id));
+        $product = $query->fetch(PDO::FETCH_OBJ);
+        return $product;
+    }
 }
