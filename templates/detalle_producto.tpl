@@ -1,4 +1,5 @@
 {include file='templates/header.tpl'}
+<div class="contenedor-general">
     <div class="nombre">
         <h4>Producto:</h4> 
         <p>{$producto->nombre}</p>
@@ -9,10 +10,11 @@
     </div> 
     <div class="precio">
         <h4>Precio:</h4>
-        <p>{$producto->precio}</p>
+        <p>${$producto->precio}</p>
     </div> 
     <div class="descripcion">
         <h4>Descripcion:</h4>
         <p>{$producto->descripcion}</p>
     </div>       
+</div>
 {include file='templates/footer.tpl'}

@@ -1,7 +1,7 @@
 {include file='templates/header.tpl'}
     <div class="contenedor-general"> 
         {if !$productos}
-            "No hay productos para esta categoria."
+            No hay productos para esta categoria.
         {else}
         <div class="content-top-page">
             <div class="content-title">

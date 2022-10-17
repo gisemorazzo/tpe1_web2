@@ -11,15 +11,12 @@ if (!empty($_GET['action'])) {
     $action = 'list';
 }
 
-
-// parsea la accion Ej: dev/juan --> ['dev', juan]
 $params = explode('/', $action);
 
 $productoController = new ProductoController();
 $categoriaController = new CategoriaController();
 $userController = new userController();
 
-// tabla de ruteo
 switch ($params[0]) {
     case 'list':
         $productoController->viewProducts();
@@ -42,7 +39,6 @@ switch ($params[0]) {
         $productoController->detalleProducto($id);
         break;
     case 'deleteProduct':
-        // obtengo el parametro de la acción
         $id = $params[1];
         $productoController->deleteProduct($id);
         break;
@@ -60,6 +56,9 @@ switch ($params[0]) {
         break;
     case 'editProduct':
         $productoController->editProduct();
+        break;
+    case 'editCategory':
+        $categoriaController->editCategory();
         break;
     case 'productos_por_categoria':
         $productoController->mostrarProductosPorCategoria();

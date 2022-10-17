@@ -13,7 +13,7 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-              <a class="navbar-brand" href="">Tienda Natura</a>
+              <a class="navbar-brand" href="list">Tienda Natura</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -26,8 +26,8 @@
                     <a class="nav-link" href="list_categories">Categorias</a>
                   </li>
                   <li class="nav-item">
-                  <a class="nav-link" href="login">Iniciar sesión</a>
-                </li>
+                    <a class="nav-link" href="login">Iniciar sesión</a>
+                  </li>
                   <li class="nav-item">
                     <a class="nav-link" href="logout">Cerrar sesión</a>
                   </li>
@@ -36,6 +36,4 @@
             </div>
           </nav>
     </header>
-
-    <!-- inicio main container -->
     <main class="container">

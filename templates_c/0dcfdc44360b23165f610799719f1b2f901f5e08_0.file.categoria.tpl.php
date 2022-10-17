@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2022-10-15 20:40:45
+/* Smarty version 3.1.39, created on 2022-10-17 01:14:58
   from 'C:\xampp\htdocs\web2\tpe_1_web2\templates\categoria.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_634afead2e72b0_54845128',
+  'unifunc' => 'content_634c907233a876_99158265',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0dcfdc44360b23165f610799719f1b2f901f5e08' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\tpe_1_web2\\templates\\categoria.tpl',
-      1 => 1665859241,
+      1 => 1665962089,
       2 => 'file',
     ),
   ),
@@ -22,12 +22,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_634afead2e72b0_54845128 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634c907233a876_99158265 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
     <div class="contenedor-general"> 
         <?php if (!$_smarty_tpl->tpl_vars['productos']->value) {?>
-            "No hay productos para esta categoria."
+            No hay productos para esta categoria.
         <?php } else { ?>
         <div class="content-top-page">
             <div class="content-title">

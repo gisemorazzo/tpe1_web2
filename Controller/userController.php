@@ -1,6 +1,6 @@
 <?php
 
-require_once "./Model/userModel.php";
+require_once "./Model/UsuarioModel.php";
 require_once "./View/UsuarioView.php";
 require_once "./helpers/authHelper.php";
 
@@ -12,31 +12,23 @@ class UserController{
 
     function __construct(){
         $this->helper = new AuthHelpers();
-        $this->model = new userModel();
+        $this->model = new UsuarioModel();
         $this->view = new UsuarioView($this->helper->getEmail());
     }
-
     function login(){
         $this->view->showLogin();
     }
-
     function getUserHeader(){
         $email= $this->model->getUsers();
         $user=$this->model->getUser($email);
         $this->view->showUser($user);
     }
-
     function verifyLogin(){
         if (!empty($_POST['email']) && !empty($_POST['password'])) {
             $email = $_POST['email'];
             $password = $_POST['password'];
-     
-            // Obtengo el usuario de la base de datos
             $user = $this->model->getUser($email);
-     
-            // Si el usuario existe y las contraseñas coinciden
             if ($user  && password_verify($password, $user->password)) {
-                //inicion session  y le pido datos de la session para poder usarlos en el helper
                 session_start();
                 $_SESSION["email"] = $email;
                 $_SESSION["nombre"]=$user->nombre;
@@ -48,12 +40,10 @@ class UserController{
             }
         }
     }
-    
     function logout(){
-        session_destroy();  
+        session_destroy();
         $this->view->showLogin("Te Deslogeaste, gracias por tu trabajo");
     }
-
     function createUser(){
         if(!empty($_POST['email'])&& !empty($_POST['password'])&&!empty($_POST['nombre'])){
             $userEmail=$_POST['email'];
@@ -67,14 +57,9 @@ class UserController{
             }
         }
     }
-
-    // funcion para mostrar registro de user
     function createLogin(){
         $this->view->showCreateLogin();  
     }
-
-
-    // mostrar lista de todos los usuarios
     function mostrarUsuarios(){
         $this->helper->checkLogin();
         $rol=$this->helper->getRol();
@@ -85,15 +70,11 @@ class UserController{
             $this->view->showHome();
         }
     }
-
-    // MOSTRAR usuario
     function mostrarUsuario($email){
         $this->helper->checkLogin();
         $user = $this->model->getUser($email);
         $this->view->showUsuario($user);
     }
-
-    // modificar usuario
     function editarUsuario(){
         if (isset($_POST['nombre'],$_POST['tipoUser'],$_POST['email']) && !empty($_POST['nombre'] && !empty($_POST['rol']) && !empty($_POST['email']))) {
             $this->helper->checkLogin();
@@ -103,7 +84,6 @@ class UserController{
             $this->mostrarUsuarios();
         } 
     }
-
     function deleteUsuario($id){
         $this->helper->checkLogin();
         $rol=$this->helper->getRol();

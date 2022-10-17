@@ -1,28 +1,28 @@
 {include file='templates/header.tpl'}
-    <div class="contenedor-general"> 
-     <!-- formulario de alta de Producto -->
+    <div class="contenedor-general">
      {if isset($email)}
-     <form action="add_products" method="POST" class="my-4">
-     <div class="row">
-         <div class="col-9">
-             <div class="form-group">
-                 <label>Nombre</label>
-                 <input name="nombre" type="text" class="form-control">
-                 <label>Precio</label>
-                 <input name="precio" type="number" class="form-control">
-                 <label>Descripcion</label>
-                 <input name="descripcion" type="text" class="form-control">
-                 <label> Categoria <select class="form_categoria" name="id_categoria_fk"id="id_categoria_fk">
-                 {foreach from=$categorias item=$categoria}
-                    <option value={$categoria->id}>{$categoria->nombre}</option>
-                  {/foreach}
-                 </select>
-                 </label>
-             </div>
-         </div>
-    </div>
-     <button type="submit" class="btn btn-primary mt-2">Guardar</button>
- </form>
+        <form action="add_products" method="POST" class="my-4">
+            <div class="row">
+                <div class="col-9">
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input name="nombre" type="text" class="form-control">
+                        <label>Precio</label>
+                        <input name="precio" type="number" class="form-control">
+                        <label>Descripcion</label>
+                        <input name="descripcion" type="text" class="form-control">
+                        <label> Categoria<br> 
+                        <select class="form_categoria" name="id_categoria_fk"id="id_categoria_fk">
+                        {foreach from=$categorias item=$categoria}
+                            <option value={$categoria->id}>{$categoria->nombre}</option>
+                        {/foreach}
+                        </select>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Guardar</button>
+        </form>
      {/if}
  </br>
                 

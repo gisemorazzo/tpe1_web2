@@ -1,5 +1,4 @@
 {include file='templates/header.tpl'}
-<!-- formulario de alta de productos -->
 <form action="editProduct" method="POST" class="my-4">
     <input name="id" type="hidden" value="{$id}">
     <div class="row">

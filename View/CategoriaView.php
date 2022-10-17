@@ -21,9 +21,8 @@ class CategoriaView{
     function updateCategory($id,$nombre){    
         updateCategoryById($id);
     }
-    function showEditCategory($id, $categories){
+    function showEditCategory($id){
         $this->smarty->assign('id', $id);
-        $this->smarty->assign('categorias', $categories);
         $this->smarty->display('templates/editar_categoria.tpl');
     }
     function showProductsByCategory($products){

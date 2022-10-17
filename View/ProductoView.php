@@ -7,7 +7,6 @@ class ProductoView{
         $this->smarty = new Smarty();
         $this->smarty->assign('email',$email);
     }
-
     function showProducts($products, $categories){
         $this->smarty->assign('productos', $products);
         $this->smarty->assign('categorias', $categories);

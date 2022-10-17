@@ -1,6 +1,6 @@
 <?php
 
-class userModel{
+class UsuarioModel{
 
     private $db;
     function __construct(){
@@ -31,7 +31,6 @@ class userModel{
         $query->execute(array($email));
     }
 
-    // funcion administrador para editar usuario 
     function editarTipoUser($email){
         $sentencia = $this->db->prepare("UPDATE users SET email=?");
         $sentencia->execute($email);

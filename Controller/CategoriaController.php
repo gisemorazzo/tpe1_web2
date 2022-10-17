@@ -28,7 +28,10 @@ class CategoriaController{
         $this->view->goCategories();
     }
     function updateCategory($id){
-        $categories = $this->model->updateCategory($id);
+        $this->view->showEditCategory($id);
+    }
+    function editCategory(){
+        $this->model->updateCategory($_POST['id'], $_POST['nombre']);
         $this->view->goCategories();
     }
     function getProductsByCategory($id){

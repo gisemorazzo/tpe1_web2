@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <base href="{BASE_URL}" />
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/stylecss.css">
-
-    <title>Login Libreria</title>
-</head>
-
-<body>
+{include file='templates/header.tpl'}
     <div class="contenedor-general-login">
 
         <div class="container-login colorDiv">
@@ -36,12 +21,9 @@
                         <input class="loginInput" placeholder="password" type="password" name="password" id="password"
                             required>
                     </div>
-                    <div class="btn-form-login mtt-5">
+                    <div class="btn-form-login mtt-2">
                         <input type="submit" class=" btn btn-sm btn-primary" value="Create">
-                        <div class="ml-5">
-                            <a class="btn btn-secondary btn-sm btn-create-user" href="login">Cancel</a>
-                        </div>
-
+                        <a class="btn btn-secondary btn-sm btn-create-user" href="login">Cancel</a>
                     </div>
                 </form>
 
